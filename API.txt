@@ -1,0 +1,7 @@
+API CONFIGURATION STEPS
+=============================================
+
+
+stripe
+developer.twitter.com, Search API
+github/sferik/twitter

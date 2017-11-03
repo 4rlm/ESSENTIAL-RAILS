@@ -1,0 +1,12 @@
+GITHUB CONFIGURATION STEPS
+=============================================
+
+* Create Git Hub Repo
+  $ git init
+  $ git add .
+  $ git commit -m "[Setup] first commit"
+  > Create new repo on GitHub site (Don't create Readme there.)
+  $ git remote add origin git@github.com:4rlm/eat_and_review.git
+  $ git push -u origin master
+  > Verify repo pushed to GH site.
+  $ git checkout -b feature-branch

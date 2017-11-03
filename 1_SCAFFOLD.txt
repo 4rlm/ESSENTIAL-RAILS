@@ -1,0 +1,38 @@
+RAILS SCAFFOLD AND CUSTOM CONFIGURATION STEPS
+=============================================
+Get routes for specific resource:
+$ rails routes -c users
+
+Rails App Steps: https://gist.github.com/sionc/8574230
+=====================
+$ rails --help
+$ rails _4.2.5_ new blog (if explicit version required)
+
+$ rails new eat_and_review --database=postgresql
+$ cd eat_and_review
+$ bundle update
+$ bundle install
+$ rails generate controller home index
+$ rm public/index.html
+> config/routes.rb, root :to => "home#index"
+
+$ rails generate scaffold Restaurant name:string cuisine:string address:string city:string state:string zip:string user_id:integer
+$ rails generate scaffold Review user_id:integer restaurant_id:integer rating:integer description:string
+$ rails generate scaffold User username:string email:string pw_hash:string
+
+$ rake db:create
+$ rake db:migrate
+
+* SAMPLE THE SITE:
+  $ rails s
+  $ rails c
+
+============================
+* ADDITIONAL CONFIGURATIONS:
+  * 2_GEMS.txt
+  * 3_GITHUB.txt
+  * 4_PIPELINE.txt
+  * 5_LAYOUT.txt
+  * 6_MODELS.txt
+  * 7_AJAX.txt
+  * 8_API.txt

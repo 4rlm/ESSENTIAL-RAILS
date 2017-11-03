@@ -1,0 +1,64 @@
+RAILS ASSET PIPELINE CONFIGURATION STEPS
+=============================================
+Bootstrap Integration: https://launchschool.com/blog/integrating-rails-and-bootstrap-part-1
+
+1. /app/assets/javascripts/application.js (keep same ordering as below.)
+  // = require jquery
+  // = require jquery_ujs
+  // = require rails-ujs
+  // = require turbolinks
+  // = require bootstrap-sprockets
+  // = require_tree .
+
+2. /app/assets/stylesheets/application.css
+  Change file extension from .css to .scss, like this: application.scss
+
+  Paste the two links below at bottom of application.scss
+  @import 'bootstrap-sprockets';
+  @import 'bootstrap';
+
+3) Custom CSS:
+  Place in app/lib/assets/stylesheets, then 'import' to application.scss like below:
+  @import 'sample_style.css'; // (from app/lib/assets/stylesheets)
+
+4) Custom JS:
+  Place in app/lib/assets/javascripts, then 'require' in application.js like below:
+  // = require modal/main
+  // = require modal/modernizr
+
+  == ORDER MATTERS!  Should be between 'bootstrap-sprockets' and 'require_tree .', like below:
+
+  // = require jquery
+  // = require jquery_ujs
+  // = require turbolinks
+  // = require bootstrap-sprockets
+  // = require modal/main
+  // = require modal/modernizr
+  // = require_tree .
+
+5) Images:
+  1. Place in app/assets/images
+  2. Link to them in html files like below:
+    <div id="cd-logo"><a href="#0"><%= image_tag('modal/cd-logo.svg') %></a></div>
+
+  3. Link to them in css stylesheet files like below:
+    .cd-form label.cd-username {
+      background-image: image-url("modal/cd-icon-username.svg");
+    }
+
+
+
+===========================================
+  5. LAYOUT TEMPLATES
+    1) Can copy and paste saved layout templates, but rename and save original first.
+    2) Rename views/layouts to views/layouts_orig (to save original)
+    3) Copy layouts folder from ESSENTIAL RAILS, and Paste in views/
+    4) If they require any custom css or js, follow directions above.
+
+
+6. Font-Awesome
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
+
+<th class="fa-black scr-w-med-min">
+  <%= fa_icon "sitemap lg shadow", "data-toggle": "tooltip", "data-placement": "top", title: "Dealer Locations: #{indexer.loc_status}" %>
+</th>

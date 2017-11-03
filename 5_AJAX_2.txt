@@ -1,0 +1,100 @@
+Views NEEDED
+_form.html.erb
+_task.html.erb
+create.js.erb
+destroy.js.erb
+index.html.erb
+new.html.erb
+new.js.erb
+update.js.erb
+========================
+
+Views to DELETE
+1) _task.json.jbuilder
+2) _index.json.jbuilder
+3) show.json.jbuilder
+
+Views to CREATE
+create.js.erb
+destroy.js.erb
+new.js.erb
+update.js.erb
+_task.html.erb
+
+Views to EDIT
+_form.html.erb
+index.html.erb
+new.html.erb
+========================
+
+
+==Views to EDIT==
+
+_form.html.erb
+  <%= form_for @task, remote: true do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+  <% end %>
+
+index.html.erb
+  <%= link_to "New Task", new_task_path, id: "new_link", remote: true %>
+
+  <h2>Tasks</h2>
+  <div class="tasks" id="tasks">
+    <%= render @tasks %>
+  </div>
+
+new.html.erb
+  <h1>New Task</h1>
+  <%= render 'form' %>
+  <p><%= link_to "Back to tasks", tasks_path %></p>
+
+layouts/application.html.erb
+  <div id="container">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
+    <% end %>
+    <%= yield %>
+  </div>
+
+
+==Views to CREATE==
+
+create.js.erb
+  $('#new_task').remove();
+  $('#new_link').show();
+  $('#incomplete_tasks').append('<%= j render(@task) %>');
+  $('#edit_task_<%= @task.id %>').submitOnCheck();
+
+destroy.js.erb
+  $('#edit_task_<%= @task.id %>').remove();
+
+new.js.erb
+  $('#new_link').hide().after('<%= j render("form") %>');
+
+update.js.erb
+  <% if @task.complete? %>
+    $('#edit_task_<%= @task.id %>').appendTo('#complete_tasks');
+  <% else %>
+    $('#edit_task_<%= @task.id %>').appendTo('#incomplete_tasks');
+  <% end %>
+
+_task.html.erb
+  <%= form_for task, remote: true do |f| %>
+    <%= f.submit "Update" %>
+    <%= f.label :complete, task.name %>
+    <%= link_to "(remove)", task, method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
+  <% end %>
+
+  ========================
+
+|==ROUTES==|
+
+  Rails.application.routes.draw do
+    resources :tasks
+    root to: 'tasks#index'
+  end
+
+  ========================
+
+|==CONTROLLERS==|
