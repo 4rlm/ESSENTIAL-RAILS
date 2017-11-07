@@ -1,3 +1,30 @@
+RUBY RVM
+$ ruby -v
+$ rbenv install 2.3.3
+$ rbenv global 2.3.3
+$ ruby -v
+
+RUBY GEM VERSION
+$ gem -v
+$ gem update --system
+$ rvm gemset list
+$ rvm gemset use global
+$ gem list
+$ gem outdated
+$ gem update
+
+RAILS VERSION
+$ gem install rails --version=3.2.18
+$ gem install rails
+$ rails -v
+
+RAILS NEW APP W/ VERSION:
+$ gem install rails -v 5.0.1
+$ rails _4.2.5_ new blog
+
+$ rails _5.0.1_ new calreact
+==============================================
+
 RAILS SCAFFOLD AND CUSTOM CONFIGURATION STEPS
 =============================================
 Get routes for specific resource:
