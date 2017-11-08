@@ -14,8 +14,8 @@ $ gem outdated
 $ gem update
 
 RAILS VERSION
-$ gem install rails --version=3.2.18
-$ gem install rails
+$ rvm use ruby-2.3.3@rails5.0 --create
+$ gem install rails --version=5.0.1
 $ rails -v
 
 RAILS NEW APP W/ VERSION:
