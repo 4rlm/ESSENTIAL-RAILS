@@ -18,10 +18,10 @@ $ rvm use ruby-2.3.3@rails5.0 --create
 $ gem install rails --version=5.0.1
 $ rails -v
 
-RAILS NEW APP W/ VERSION:
-$ gem install rails -v 5.0.1
-$ rails _4.2.5_ new blog
-
+New Rails App (created on 5, not 5.1)
+$ rvm use ruby-2.3.3@rails5.0 --create
+$ gem install rails --version=5.0.1
+$ rails -v
 $ rails _5.0.1_ new calreact
 ==============================================
 
