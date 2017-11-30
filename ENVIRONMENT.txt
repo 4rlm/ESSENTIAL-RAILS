@@ -12,8 +12,8 @@ API KEYS AND TOKENS VIA ENVIRONMENT VARIABLES
 
   # .env
     $ touch .env
-    > GITHUB_ACCESS_TOKEN=0279d6d493c5b49dd37bb6f44a82c32caeb87b1e
-    > GOOGLE_API_KEY=AIzaSyCCXu8hqupAesvGPQh2ebeb2MnjU_lbAgY
+    > GITHUB_ACCESS_TOKEN=0279d6d4YOUR_KEY/TOKEN_GOES_HERE56789
+    > GOOGLE_API_KEY=A0279d6d4YOUR_KEY/TOKEN_GOES_HERE56789
 
   # .gitignore
     $ touch .gitignore
@@ -51,8 +51,8 @@ $ irb (via irb as a hash)
 ENV[GITHUB_ACCESS_TOKEN]
 ENV[GOOGLE_API_KEY]
 
-GITHUB_ACCESS_TOKEN=0279d6d493c5b49dd37bb6f44a82c32caeb87b1e
-GOOGLE_API_KEY=AIzaSyCCXu8hqupAesvGPQh2ebeb2MnjU_lbAgY
+GITHUB_ACCESS_TOKEN=00279d6d4YOUR_KEY/TOKEN_GOES_HERE56789
+GOOGLE_API_KEY=0279d6d4YOUR_KEY/TOKEN_GOES_HERE56789
 
 
 Release 1: The Need for a GitHub Access Token
@@ -72,7 +72,7 @@ Limit scope to user, then copy token.
 
 Release 3: Make the Token Available to Ruby (only available for one time of running script)
 assign environment variables when running our script all in one line:
-$ GITHUB_ACCESS_TOKEN=0279d6d493c5b49dd37bb6f44a82c32caeb87b1e ruby runner.rb (mine)
+$ GITHUB_ACCESS_TOKEN=0279d6d4YOUR_KEY/TOKEN_GOES_HERE56789 ruby runner.rb (mine)
 Your GitHub username is 4rlm.
 You have 1 followers on GitHub.
 You are following 1 users.
@@ -80,7 +80,7 @@ Variable is not stored in the shell, so we have to declare the token every time 
 
 Release 4: Make the Token an Environment Variable in the Shell (only available in this shell)
 To make it an environment variable, we export it:
-$ export GITHUB_ACCESS_TOKEN=0279d6d493c5b49dd37bb6f44a82c32caeb87b1e
+$ export GITHUB_ACCESS_TOKEN=0279d6d4YOUR_KEY/TOKEN_GOES_HERE56789
 $ bundle exec ruby runner.rb
 Unfortunately, this environment variable is only set for this one shell.
 
@@ -95,9 +95,9 @@ This gem provides an executable that we can use when running an application. It 
 
 In the .env file, we can declare each of our environment variables on a separate line:
 
-GITHUB_ACCESS_TOKEN=0279d6d493c5b49dd37bb6f44a82c32caeb87b1e
-OTHER_TOKEN=ed872ca4df47129a8be1cb149f5d08e64d1a2si5
-OTHER_SECRET=ue983ca0df47129a8be1cb149f5d08e64d1i6xz8
+GITHUB_ACCESS_TOKEN=0279d6d4YOUR_KEY/TOKEN_GOES_HERE56789
+OTHER_TOKEN=0279d6d4YOUR_KEY/TOKEN_GOES_HERE56789
+OTHER_SECRET=0279d6d4YOUR_KEY/TOKEN_GOES_HERE56789
 When dotenv runs, it picks up the variables in that file and makes them environment variables for the duration of your program.
 
 Create a .env file and add our GitHub access token to it. Then use Dotenv's executable to run our script:
